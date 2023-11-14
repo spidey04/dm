@@ -1,0 +1,10 @@
+install.packages("fpc")
+install.packages("dbscan")
+library(fpc)
+iris_1=iris[-5]
+set.seed(150)
+ds=dbscan(iris_1,eps=0.42,MinPts=5)
+ds
+table(iris$Species,ds$cluster)
+plot(ds,iris_1)
+plot(ds,iris_1[,c(1,4)])
